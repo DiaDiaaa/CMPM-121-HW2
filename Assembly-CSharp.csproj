@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{a9c2ebf4-06e1-d38f-427d-79db03882958}</ProjectGuid>
+    <ProjectGuid>{cb35c7e0-f23e-c3c5-3ed8-1a4cb31e7d75}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -36,8 +36,26 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/Stylized Astronaut/Character/ThirdPersonCamera.cs" />
+     <Compile Include="Assets/Kawaii Slime/Scripts/AI/Face.cs" />
+     <Compile Include="Assets/Kawaii Slime/Scripts/GameManager.cs" />
+     <Compile Include="Assets/Floating.cs" />
+     <Compile Include="Assets/Kawaii Slime/Cameras/Scripts/FreeLookCam.cs" />
+     <Compile Include="Assets/Kawaii Slime/Cameras/Scripts/PivotBasedCameraRig.cs" />
+     <Compile Include="Assets/ChangeCameraButton.cs" />
+     <Compile Include="Assets/Kawaii Slime/Cameras/Scripts/AbstractTargetFollower.cs" />
+     <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
+     <Compile Include="Assets/LowPolyEarth/EarthSpinScript.cs" />
+     <Compile Include="Assets/Rotate.cs" />
+     <Compile Include="Assets/Kawaii Slime/Scripts/AI/EnemyAi.cs" />
      <Compile Include="Assets/Stylized Astronaut/Character/Player.cs" />
+     <Compile Include="Assets/Stylized Astronaut/Character/ThirdPersonCamera.cs" />
+     <Compile Include="Assets/Follow.cs" />
+     <None Include="Assets/Ladymito/Free_cat/Animations/low_poly_cat_animation_list.txt" />
+     <None Include="Assets/camera_button.uxml" />
+     <None Include="Assets/Kawaii Slime/Cameras/CameraGuidelines.txt" />
+     <None Include="Assets/Planets/shader/two_side_shader.shader" />
+     <None Include="Assets/Kawaii Slime/Shader/Unity-chan Shader Ver 1.2.1/readme.txt" />
+     <None Include="Assets/Kawaii Slime/Shader/Unity-chan Shader Ver 1.2.1/Unitychan_chara_eye.shader" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -281,14 +299,26 @@
     <Reference Include="UnityEditor.UnityConnectModule">
         <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    <Reference Include="Unity.Burst.Unsafe">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
-    <Reference Include="ReportGeneratorMerged">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
+    <Reference Include="Unity.Burst.Cecil.Mdb">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>/Applications/Unity/Unity.app/Contents/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
@@ -657,82 +687,112 @@
         <HintPath>/Applications/Unity/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="PPv2URPConverters">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Editor">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+    <Reference Include="Unity.Mathematics">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Core.Analytics">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Core.Environments">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.Services.Core.Environments.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.Services.Core.Environments.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
-        <HintPath>/Users/kevin/Desktop/CMPM-121-HW2/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+        <HintPath>/Users/kevin/Desktop/CMPM-121-Light/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
