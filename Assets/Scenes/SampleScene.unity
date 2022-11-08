@@ -5443,6 +5443,7 @@ MonoBehaviour:
   - {fileID: 1078848351}
   - {fileID: 963194227}
   - {fileID: 1191467076}
+  Lights: {fileID: 13953396}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,11 +8,11 @@ public class ChangeCameraButton : MonoBehaviour
 {
     // create camera list that can be updated in the inspector
     public List<Camera> Cameras;
-
+    public List<GameObject> Lights;
     // create frame and button variables 
     private VisualElement frame;
     private Button button;
-    //private Button lightbutton;
+    private Button lightbutton;
 
     // This function is called when the object becomes enabled and active.
     void OnEnable()
@@ -24,10 +24,10 @@ public class ChangeCameraButton : MonoBehaviour
         frame = rootVisualElement.Q<VisualElement>("Frame");
         // get the button, which is nested in the frame
         button = frame.Q<Button>("Button");
-        //lightbutton = frame.Q<Button>("LightButton");
+        lightbutton = frame.Q<Button>("Button1");
         // create event listener that calls ChangeCamera() when pressed
         button.RegisterCallback<ClickEvent>(ev => ChangeCamera());
-        //lightbutton.RegisterCallback<ClickEvent>(ev => ChangeLight());
+        lightbutton.RegisterCallback<ClickEvent>(ev => ChangeLight());
     }
 
     // initialize click count
@@ -53,28 +53,34 @@ public class ChangeCameraButton : MonoBehaviour
         // Cameras[n].depth = 1;
 
     }
-    // private void ChangeLight(){
+    private void ChangeLight(){
         
-    //     lightclick++;
-    //     // EnableCamera(click);
-    //     // click++;
-    //     // // reset counter so it is not out of bounds (only have 4 cameras)
-    //     // if(click > Cameras.Count-1){
-    //     //     click = 0;
-    //     // }
-    // }
+        lightclick++;
+        EnableLight(lightclick);
+        // reset counter so it is not out of bounds (only have 4 cameras)
+        if(lightclick > 2){
+            lightclick = 0;
+        }
+    }
 
-    // private void EnableCamera(int n)
-    // {
-    //     // disable each of the cameras
-    //     Cameras.ForEach(cam => cam.enabled = false);
-    //     // Cameras.ForEach(cam => cam.depth = 0);
+    private void EnableLight(int n)
+    {
+        if(n == 1){
+            Lights.ForEach(lit => lit.SetActive(true));
+        }else if(n == 2){
+            Lights[0].SetActive(false);
+        }else{
+            Lights.ForEach(lit => lit.SetActive(false));
+        }
+        // // disable each of the cameras
+        // Cameras.ForEach(cam => cam.enabled = false);
+        // // Cameras.ForEach(cam => cam.depth = 0);
 
-    //     // enable the selected camera
-    //     Cameras[n].enabled = true;
-    //     // Cameras[n].depth = 1;
+        // // enable the selected camera
+        // Cameras[n].enabled = true;
+        // // Cameras[n].depth = 1;
 
-    // }
+    }
 
     
     
